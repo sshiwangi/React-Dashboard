@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         sidebarbg: "#F4F1ED",
         togglebtn: "#90C177",
+        mainbg: "#FCFEFE",
       },
     },
   },

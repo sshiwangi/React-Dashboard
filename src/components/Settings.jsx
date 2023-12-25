@@ -6,8 +6,8 @@ function Settings() {
 
   return (
     <div className="px-4">
-      <h1 className="text-xl font-semibold">Settings</h1>
-      <div className="flex gap-6 mt-4 mb-6">
+      <h1 className="text-[32px] font-semibold">Settings</h1>
+      <div className="flex gap-6 mt-5 mb-6">
         {SettingsItems.map((item) => (
           <span
             className={`font-medium text-sm ${
