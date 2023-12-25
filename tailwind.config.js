@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         sidebarbg: "#F4F1ED",
+        togglebtn: "#90C177",
       },
     },
   },
