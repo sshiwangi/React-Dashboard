@@ -4,7 +4,7 @@ import profile2 from "../../assets/images/profile (2).png";
 import profile3 from "../../assets/images/profile 3.png";
 import profile4 from "../../assets/images/profile 4.png";
 
-export const profileImages = [
+export const communityMembers = [
   {
     style: "h-[32px] absolute left-4",
     path: profile1,

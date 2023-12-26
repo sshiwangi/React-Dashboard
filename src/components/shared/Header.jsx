@@ -6,7 +6,9 @@ import { CgMenuLeft } from "react-icons/cg";
 import loginIcon from "../../assets/images/Login.png";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
-import Input from "../UIElements/Input";
+import Search from "../UIElements/Search";
+import { headerLinks } from "../../lib/consts/navigation";
+import DropdownMenu from "../UIElements/DropdownMenu";
 
 function Header({ isSidebarOpen, toggleSidebar }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -45,18 +47,19 @@ function Header({ isSidebarOpen, toggleSidebar }) {
 
             <div className="relative">
               <FaSearch className="absolute top-1/2 -translate-y-1/2 left-3" />
-              <Input
+              <Search
                 style="text-sm bg-mainbg focus:outline-none active:outline-none h-10 w-[16rem] sm:w-[24rem] px-4 pl-12"
                 type="text"
-                placeholder="Search something..."
+                placeholder="Search members..."
               />
             </div>
           </div>
           <div className="flex items-center gap-4 mr-2">
             <FaRegBell size={20} />
-            <div>
+            <DropdownMenu icon={loginIcon} dropDownItems={headerLinks} />
+            {/* <div>
               <img src={loginIcon} className="h-[24px]" alt="" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

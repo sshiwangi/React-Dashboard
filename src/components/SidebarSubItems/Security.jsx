@@ -48,6 +48,7 @@ const SecurityItems = [
         style="text-sm bg-mainbg border border-gray-300 focus:outline-none active:outline-none h-10 w-10"
         type={Number}
         placeholder={8}
+        value={8}
       />
     ),
     label: "Password length",
@@ -69,13 +70,13 @@ const SecurityItems = [
   },
 ];
 function Security() {
-  const [passwordLength, setPasswordLength] = useState(8);
+  // const [passwordLength, setPasswordLength] = useState(8);
 
-  const handleInputChange = (key, value) => {
-    if (key === "password-length") {
-      setPasswordLength(value);
-    }
-  };
+  // const handleInputChange = (key, value) => {
+  //   if (key === "password-length") {
+  //     setPasswordLength(value);
+  //   }
+  // };
   const [itemStates, setItemStates] = useState(
     SecurityItems.reduce((acc, item) => {
       acc[item.key] = item.toggle;

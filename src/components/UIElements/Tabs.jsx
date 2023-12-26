@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const privateMessageItems = [
   {
@@ -16,12 +16,23 @@ const privateMessageItems = [
 ];
 
 function Tabs() {
+  const [currentItem, setCurrentItem] = useState("team");
+
+  const handleClick = (key) => {
+    setCurrentItem(key);
+  };
+
   return (
     <div className="flex gap-2 items-center mr-2 px-4 text-sm">
       {privateMessageItems.map((item) => (
         <span
-          className="bg-neutral-700 text-[12px] px-3 py-1 text-white border rounded-full"
+          className={`${
+            currentItem === item.key
+              ? "bg-neutral-700 text-white"
+              : "border-neutral text-neutral-700"
+          } text-[12px] px-3 py-1 border rounded-full cursor-pointer`}
           key={item.key}
+          onClick={() => handleClick(item.key)}
         >
           {item.label}
         </span>

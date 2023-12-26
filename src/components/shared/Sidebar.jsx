@@ -6,7 +6,7 @@ import profileIcon from "../../assets/images/profile icon.png";
 import techHazelIcon from "../../assets/images/techHazelIcon.png";
 import { FaCirclePlus } from "react-icons/fa6";
 import { CgClose } from "react-icons/cg";
-import { profileImages } from "../../lib/consts/profileImage";
+import { communityMembers } from "../../lib/consts/CommunityMembers";
 
 function Sidebar({ isSidebarOpen, toggleSidebar }) {
   const [screenSize, setScreenSize] = useState(window.innerWidth);
@@ -32,7 +32,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
 
   return (
     <div
-      className={` h-full sm:block flex  ${
+      className={` h-full sm:block flex sticky top-0  ${
         isSidebarOpen ? "translate-x-0" : "hidden -translate-x-full"
       }fixed inset-0 transition-transform ease-in-out duration-300`}
       style={sidebarStyles}
@@ -68,7 +68,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
         {/* COMMUNITY-MEMBERS */}
         <div>
           <div className="flex py-4 justify-center items-center relative">
-            {profileImages.map((profile, index) => (
+            {communityMembers.map((profile, index) => (
               <img
                 key={index}
                 className={profile.style}

@@ -1,32 +1,37 @@
 import React from "react";
-import { Menu, Transition } from "@headlessui/react";
+import { Popover } from "@headlessui/react";
+import { FiChevronDown } from "react-icons/fi";
 
-function DropdownMenu() {
+function DropdownMenu({ icon, dropDownItems }) {
   return (
-    <>
-      <Menu as="div" className="relative inline-block text-left">
-        <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
-          <div className="px-1 py-1 ">
-            <Menu.Item>
-              {({ active }) => (
-                <button
-                  className={`${
-                    active ? "bg-violet-500 text-white" : "text-gray-900"
-                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                >
-                  {active ? (
-                    <div className="mr-2 h-5 w-5" aria-hidden="true" />
-                  ) : (
-                    <div className="mr-2 h-5 w-5" aria-hidden="true" />
-                  )}
-                  Edit
-                </button>
-              )}
-            </Menu.Item>
-          </div>
-        </Menu.Items>
-      </Menu>
-    </>
+    <Popover className="relative inline-block text-left">
+      {({ open }) => (
+        <>
+          <Popover.Button>
+            <img src={icon} className="h-[24px]" alt="Dropdown" />
+          </Popover.Button>
+          <Popover.Panel
+            className={`${
+              open ? "visible" : "invisible"
+            } absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none`}
+            static
+          >
+            {dropDownItems.map((item) => (
+              <a
+                key={item.path}
+                href={item.path}
+                className={`${
+                  open ? "opacity-100" : "opacity-0"
+                } group flex w-full items-center rounded-md px-2 py-2 text-sm cursor-pointer transition-opacity`}
+              >
+                {item.icon}
+                <span className="ml-2">{item.name}</span>
+              </a>
+            ))}
+          </Popover.Panel>
+        </>
+      )}
+    </Popover>
   );
 }
 

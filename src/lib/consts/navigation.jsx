@@ -13,6 +13,7 @@ import Chat from "../../pages/Chat";
 import Offers from "../../pages/Offers";
 import Calendar from "../../pages/Calendar";
 import Settings from "../../pages/Settings";
+import { CiLogout } from "react-icons/ci";
 // import { RiHome2Fill } from "react-icons/ri";
 
 export const Sidebar_Links = [
@@ -73,5 +74,13 @@ export const SettingsItems = [
     key: "privacy",
     label: "Privacy",
     component: <Privacy />,
+  },
+];
+
+export const headerLinks = [
+  {
+    name: "logout",
+    path: "/logout",
+    icon: <CiLogout />,
   },
 ];

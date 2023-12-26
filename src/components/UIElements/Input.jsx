@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Input({ style, type, placeholder, ...props }) {
+function Input({ style, type, value, placeholder, ...props }) {
   return (
     <input
       className={`${style}`}
       type={type}
       placeholder={placeholder}
+      value={value}
       {...props}
     />
   );
