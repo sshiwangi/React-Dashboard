@@ -6,6 +6,7 @@ import { CgMenuLeft } from "react-icons/cg";
 import loginIcon from "../../assets/images/Login.png";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useEffect, useRef, useState } from "react";
+import Input from "../UIElements/Input";
 
 function Header({ isSidebarOpen, toggleSidebar }) {
   return (
@@ -23,8 +24,8 @@ function Header({ isSidebarOpen, toggleSidebar }) {
 
             <div className="relative">
               <FaSearch className="absolute top-1/2 -translate-y-1/2 left-3" />
-              <input
-                className=" text-sm bg-mainbg focus:outline-none active:outline-none h-10 w-[16rem] sm:w-[24rem] px-4 pl-12"
+              <Input
+                style="text-sm bg-mainbg focus:outline-none active:outline-none h-10 w-[16rem] sm:w-[24rem] px-4 pl-12"
                 type="text"
                 placeholder="Search something..."
               />
@@ -34,16 +35,6 @@ function Header({ isSidebarOpen, toggleSidebar }) {
             <FaRegBell size={20} />
             <div>
               <img src={loginIcon} className="h-[24px]" alt="" />
-              {/* <Transition
-              show={true}
-              as={Fragment}
-              enter="transition ease-out duration-100"
-              enterFrom="transform opacity-0 scale-95"
-              enterTo="transform opacity-100 scale-100"
-              leave="transition ease-in duration-75"
-              leaveFrom="transform opacity-100 scale-100"
-              leaveTo="transform opacity-0 scale-95"
-            ></Transition> */}
             </div>
           </div>
         </div>
