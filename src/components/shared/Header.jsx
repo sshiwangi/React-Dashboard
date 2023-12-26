@@ -9,9 +9,30 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import Input from "../UIElements/Input";
 
 function Header({ isSidebarOpen, toggleSidebar }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Set the isScrolled state based on the scroll position
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className={` ${isSidebarOpen ? "z-30" : ""} w-full`}>
-      <div>
+    <div
+      className={` ${isSidebarOpen ? "z-30" : ""} ${
+        isScrolled ? "shadow-md" : ""
+      } w-full sticky top-0 bg-mainbg`}
+    >
+      <div className="">
         <div className="p-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             {!isSidebarOpen && (

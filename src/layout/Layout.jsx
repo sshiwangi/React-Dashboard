@@ -12,10 +12,12 @@ function Layout() {
   return (
     <div className="flex flex-row h-screen overflow-hidden">
       <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-      <div className="flex flex-col flex-1 bg-mainbg sm:py-7 sm:px-6">
-        <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <div className="p-4">
-          <div>{<Outlet />}</div>
+      <div className="flex flex-col flex-1 bg-mainbg overflow-y-auto">
+        <div className="sm:py-7 sm:px-6">
+          <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+          <div className="p-4">
+            <div>{<Outlet />}</div>
+          </div>
         </div>
       </div>
     </div>

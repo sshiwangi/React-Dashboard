@@ -9,6 +9,7 @@ import { RiChatPrivateLine } from "react-icons/ri";
 import { IoEyeOutline } from "react-icons/io5";
 import Tabs from "../UIElements/Tabs";
 import UserProfile from "../UIElements/UserProfile";
+import Input from "../UIElements/Input";
 
 const SecurityItems = [
   {
@@ -42,7 +43,13 @@ const SecurityItems = [
   {
     key: "password-length",
     icon: <BsFileLock2 />,
-    component: 8,
+    component: (
+      <Input
+        style="text-sm bg-mainbg border border-gray-300 focus:outline-none active:outline-none h-10 w-10"
+        type={Number}
+        placeholder={8}
+      />
+    ),
     label: "Password length",
     description: "Password length not less than...",
   },
@@ -62,6 +69,13 @@ const SecurityItems = [
   },
 ];
 function Security() {
+  const [passwordLength, setPasswordLength] = useState(8);
+
+  const handleInputChange = (key, value) => {
+    if (key === "password-length") {
+      setPasswordLength(value);
+    }
+  };
   const [itemStates, setItemStates] = useState(
     SecurityItems.reduce((acc, item) => {
       acc[item.key] = item.toggle;
