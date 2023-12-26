@@ -1,6 +1,6 @@
 import React from "react";
-import Profile1 from "../assets/images/profile (1).png";
-import Profile2 from "../assets/images/profile (2).png";
+import Profile1 from "../../assets/images/profile (1).png";
+import Profile2 from "../../assets/images/profile (2).png";
 import { CgClose } from "react-icons/cg";
 
 const usersList = [
@@ -18,11 +18,11 @@ const usersList = [
 
 function UserProfile() {
   return (
-    <div className="flex">
+    <div className="flex mt-3 gap-2">
       {usersList.map((item) => (
         <div
           key={item.key}
-          className="flex p-2 gap-2 h-[24px] text-sm items-center justify-center bg-white shadow-md rounded-full"
+          className="flex p-2 gap-2 text-sm items-center justify-center bg-white shadow-md rounded-full"
         >
           <img className="h-[18px]" src={item.profileImg} alt="user" />
           {item.name}

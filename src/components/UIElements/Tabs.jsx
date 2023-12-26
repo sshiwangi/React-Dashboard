@@ -17,7 +17,7 @@ const privateMessageItems = [
 
 function Tabs() {
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 items-center mr-2 px-4 text-sm">
       {privateMessageItems.map((item) => (
         <span
           className="bg-neutral-700 text-[12px] px-3 py-1 text-white border rounded-full"

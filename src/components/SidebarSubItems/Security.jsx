@@ -7,8 +7,8 @@ import { FaPeopleArrows } from "react-icons/fa";
 import { BsFileLock2 } from "react-icons/bs";
 import { RiChatPrivateLine } from "react-icons/ri";
 import { IoEyeOutline } from "react-icons/io5";
-import Tabs from "../Tabs";
-import UserProfile from "../UserProfile";
+import Tabs from "../UIElements/Tabs";
+import UserProfile from "../UIElements/UserProfile";
 
 const SecurityItems = [
   {
@@ -77,13 +77,22 @@ function Security() {
   };
 
   return (
-    <div className="flex flex-wrap sm:gap-2 ">
-      {SecurityItems.map((item) => (
-        <div className="flex my-2 " key={item.key}>
-          <div>{item.icon}</div>
-          <div className="mx-3 text-sm flex flex-col gap-2.5">
-            <p className="font-semibold">{item.label}</p>
-            <p>{item.description}</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      {SecurityItems.map((item, index) => (
+        <div
+          className={`flex my-2 ${
+            ["private-messages", "visibility"].includes(item.key)
+              ? "flex-col"
+              : ""
+          }`}
+          key={item.key}
+        >
+          <div className="flex mb-2">
+            <div>{item.icon}</div>
+            <div className="mx-3 text-sm flex flex-col gap-2.5">
+              <p className="font-semibold">{item.label}</p>
+              <p>{item.description}</p>
+            </div>
           </div>
           {item.toggle !== undefined ? (
             <Switch
