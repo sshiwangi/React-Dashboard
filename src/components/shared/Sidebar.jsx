@@ -61,7 +61,11 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
         {/* SIDEBAR-ITEMS */}
         <div className="flex-1 py-8 flex flex-col gap-5">
           {Sidebar_Links.map((item) => (
-            <SidebarLink key={item.key} item={item}></SidebarLink>
+            <SidebarLink
+              key={item.key}
+              item={item}
+              toggleSidebar={toggleSidebar}
+            ></SidebarLink>
           ))}
         </div>
         {/* SIDEBAR-ITEMS */}
@@ -90,14 +94,20 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
   );
 }
 
-function SidebarLink({ item }) {
+function SidebarLink({ item, toggleSidebar }) {
   const { pathname } = useLocation();
+
+  const handleClick = () => {
+    toggleSidebar();
+  };
+
   return (
     <Link
       to={item.path}
       className={`flex items-center px-3 py-2 gap-5 hover:text-blue-500 hover:no-underline active:text-blue-500 rounded-sm text-base font-semibold ${
         pathname === item.path ? "text-blue-500" : ""
       }`}
+      onClick={handleClick}
     >
       <span className="text-xl">{item.icon}</span>
       {item.label}
