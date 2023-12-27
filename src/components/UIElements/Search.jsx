@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { communityMembers } from "../../lib/consts/CommunityMembers";
-import { hover } from "@testing-library/user-event/dist/hover";
 
 function Search({ style, type, placeholder, ...props }) {
   const [query, setQuery] = useState("");
@@ -10,7 +9,6 @@ function Search({ style, type, placeholder, ...props }) {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
-        // Clicked outside the search component, so clear the query
         setQuery("");
       }
     };
@@ -20,7 +18,7 @@ function Search({ style, type, placeholder, ...props }) {
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []); // Run this effect only once on component mount
+  }, []);
 
   useEffect(() => {
     setFilteredPeople(

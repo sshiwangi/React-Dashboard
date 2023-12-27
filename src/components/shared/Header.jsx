@@ -1,11 +1,9 @@
 import React from "react";
 import { FaSearch } from "react-icons/fa";
-import { GrFormNextLink } from "react-icons/gr";
 import { FaRegBell } from "react-icons/fa6";
 import { CgMenuLeft } from "react-icons/cg";
 import loginIcon from "../../assets/images/Login.png";
-import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../UIElements/Search";
 import { headerLinks } from "../../lib/consts/navigation";
 import DropdownMenu from "../UIElements/DropdownMenu";
@@ -15,14 +13,10 @@ function Header({ isSidebarOpen, toggleSidebar }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Set the isScrolled state based on the scroll position
       setIsScrolled(window.scrollY > 0);
     };
-
-    // Attach the scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Clean up the event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -57,9 +51,6 @@ function Header({ isSidebarOpen, toggleSidebar }) {
           <div className="flex items-center gap-4 mr-2">
             <FaRegBell size={20} />
             <DropdownMenu icon={loginIcon} dropDownItems={headerLinks} />
-            {/* <div>
-              <img src={loginIcon} className="h-[24px]" alt="" />
-            </div> */}
           </div>
         </div>
       </div>

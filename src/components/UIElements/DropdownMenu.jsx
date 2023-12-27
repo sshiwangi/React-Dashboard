@@ -1,10 +1,9 @@
 import React from "react";
 import { Popover } from "@headlessui/react";
-import { FiChevronDown } from "react-icons/fi";
 
 function DropdownMenu({ icon, dropDownItems }) {
   return (
-    <Popover className="relative inline-block text-left">
+    <Popover className="relative flex text-left">
       {({ open }) => (
         <>
           <Popover.Button>

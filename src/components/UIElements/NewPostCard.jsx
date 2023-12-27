@@ -10,8 +10,6 @@ function NewPostCard() {
         <h2 className="text-lg font-bold">Create New Post</h2>
         <textarea
           className="bg-neutral-300 rounded-md"
-          name=""
-          id=""
           cols="30"
           rows="2"
         ></textarea>

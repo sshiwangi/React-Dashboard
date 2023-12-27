@@ -70,13 +70,6 @@ const SecurityItems = [
   },
 ];
 function Security() {
-  // const [passwordLength, setPasswordLength] = useState(8);
-
-  // const handleInputChange = (key, value) => {
-  //   if (key === "password-length") {
-  //     setPasswordLength(value);
-  //   }
-  // };
   const [itemStates, setItemStates] = useState(
     SecurityItems.reduce((acc, item) => {
       acc[item.key] = item.toggle;

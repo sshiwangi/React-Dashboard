@@ -4,6 +4,16 @@ import { communityMembers } from "../lib/consts/CommunityMembers";
 import NewPostCard from "../components/UIElements/NewPostCard";
 import EventCard from "../components/UIElements/EventCard";
 
+const eventLists = [
+  {
+    id: 1,
+    date: "24 Feb",
+    title: "Discover, Design, Develop",
+    agenda: "Reimagining the development cycle",
+    attendees: "320 others",
+  },
+];
+
 function Home() {
   return (
     <div className="flex gap-6 justify-between flex-col md:flex-row">
@@ -20,7 +30,12 @@ function Home() {
         {/* events */}
         <div className="flex flex-col gap-4">
           <h3 className="text-xl font-bold">Upcoming Event</h3>
-          <EventCard />
+          <EventCard
+            eventDate={eventLists[0].date}
+            eventTitle={eventLists[0].title}
+            eventAgenda={eventLists[0].agenda}
+            eventAttendees={eventLists[0].attendees}
+          />
         </div>
         {/* Recommended people */}
         <div className="flex flex-col gap-4">
